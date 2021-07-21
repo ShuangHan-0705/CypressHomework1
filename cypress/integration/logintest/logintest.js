@@ -1,26 +1,27 @@
 import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
+import { getPassWordInput, getUserNameInput } from "../../support/helper";
 
 Given("I am on the login page", () => {
   cy.visit("https://www.saucedemo.com");
 });
 
 When("I input the correct username and password", () => {
-  cy.get('input[data-test="username"]').clear().type("standard_user");
-  cy.get('input[data-test="password"]').clear().type("secret_sauce");
+  getUserNameInput().clear().type("standard_user");
+  getPassWordInput().clear().type("secret_sauce");
 });
 
 When("I input the locked out username and password", () => {
-  cy.get('input[data-test="username"]').clear().type("locked_out_user");
-  cy.get('input[data-test="password"]').clear().type("secret_sauce");
+  getUserNameInput().clear().type("locked_out_user");
+  getPassWordInput().clear().type("secret_sauce");
 });
 
 When("I input the correct username and incorrect password", () => {
-  cy.get('input[data-test="username"]').clear().type("standard_user");
-  cy.get('input[data-test="password"]').clear().type("123456789");
+  getUserNameInput().clear().type("standard_user");
+  getPassWordInput().clear().type("123456789");
 });
 
 When("I input the correct username and empty password", () => {
-  cy.get('input[data-test="username"]').clear().type("standard_user");
+  getUserNameInput().clear().type("standard_user");
 });
 
 And("I click on the signin button", () => {

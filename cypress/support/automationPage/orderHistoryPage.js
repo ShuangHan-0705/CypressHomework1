@@ -8,7 +8,7 @@ export class OrderHistoryPage {
   }
 
   getOrders() {
-    cy.get("tbody>tr").should("have.length", 2);
+    return cy.get("tbody>tr");
   }
 }
 

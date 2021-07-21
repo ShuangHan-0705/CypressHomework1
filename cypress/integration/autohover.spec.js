@@ -7,24 +7,25 @@ describe("Test hover function", () => {
 
   it("Test hover in one item", () => {
     homePage.hoverin(1);
+    cy.get(".button-container").should("be.visible");
 
-    //which is better of the following two???
-    //cy.get(".button-container").should("be.visible");
-    expect(cy.get('a[data-id-product="2"]').should("be.visible"));
+    //The second way
+    //cy.get('a[data-id-product="2"]').should("be.visible");
   });
-
-  //How to click the quick view of the hover item???
-  // cy.get("ul[id=homefeatured]>li")
-  //   .eq(num)
-  //   .invoke("show")
-  //   .get('a[class="quick-view-mobile"]')
-  //   .click();
-  // cy.get("#quantity_wanted").should("be.visible");
 
   it("Test on hover out one item", () => {
     homePage.hoverout();
     cy.contains("data-id-product").should("not.exist");
   });
 
-  after(() => {});
+  it("Test quick view of a hover in item", () => {
+    homePage.hoverin(2);
+    homePage.quickview(2);
+    cy.get("#quantity_wanted").should("be.visible");
+  });
+
+  after(() => {
+    //Can I do that?
+    homePage.visit();
+  });
 });

@@ -1,12 +1,13 @@
 import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
+import { getPassWordInput, getUserNameInput } from "../../support/helper";
 
 Given("I am on the login page", () => {
   cy.visit("https://www.saucedemo.com");
 });
 
 When("I input the correct username and password", () => {
-  cy.get('input[data-test="username"]').clear().type("standard_user");
-  cy.get('input[data-test="password"]').clear().type("secret_sauce");
+  getUserNameInput().clear().type("standard_user");
+  getPassWordInput().clear().type("secret_sauce");
 });
 
 And("I click on the signin button", () => {
@@ -18,8 +19,8 @@ Then("I should login successfully", () => {
 });
 
 When("I input the {string} and {string}", (username, password) => {
-  cy.get('input[data-test="username"]').clear().type(username);
-  cy.get('input[data-test="password"]').clear().type(password);
+  getUserNameInput().clear().type(username);
+  getPassWordInput().clear().type(password);
 });
 
 Then("I should get {string} message", (errorMessage) => {

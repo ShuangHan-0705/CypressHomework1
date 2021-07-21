@@ -23,6 +23,26 @@ export class HomePage {
     cy.get("ul[id=homefeatured]>li").eq(num).trigger("mouseover");
   }
 
+  quickview(num) {
+    //sometimes click() is not workingin the following way???
+    // cy.get("ul[id=homefeatured]>li")
+    //   .eq(num)
+    //   .contains("Quick view")
+    //   .click({ force: true });
+
+    cy.get("ul[id=homefeatured]>li")
+      .eq(num)
+      .find('a[class="quick-view-mobile"]')
+      .click({ force: true });
+  }
+
+  //How to click the quick view of the hover item???
+  // cy.get("ul[id=homefeatured]>li")
+  //   .eq(num)
+  //   .invoke("show")   What is invoke used for?
+  //   .get('a[class="quick-view-mobile"]')   What is the difference between get and find?
+  //   .click();
+
   hoverout() {
     cy.get("div.header-container").trigger("mouseover");
   }
