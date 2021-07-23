@@ -28,6 +28,9 @@
 
 //Login from web page
 
+import { addMatchImageSnapshotCommand } from "cypress-image-snapshot/command";
+addMatchImageSnapshotCommand();
+
 Cypress.Commands.add("webLogin", (username, password) => {
   Cypress.log({
     name: "webLogin",

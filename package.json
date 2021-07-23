@@ -13,6 +13,7 @@
   "devDependencies": {
     "cypress": "^7.5.0",
     "cypress-cucumber-preprocessor": "^4.1.4",
+    "cypress-image-snapshot": "^4.0.1",
     "popper.js": "^1.16.1"
   },
   "dependencies": {
