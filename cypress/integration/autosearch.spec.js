@@ -8,6 +8,12 @@ describe("Test search function", () => {
     homePage.search("Dress");
     cy.get(".product_list").children().should("have.length", 7);
 
+    //This one is working
+    //cy.get(".product_list").children("li").should("have.length", 7);
+
+    //This is not working
+    //cy.get("ul[id=homefeatured]").children("li").should("have.length", 7);
+
     //Can see 7 items in Inspector???
     //cy.get("ul[id=homefeatured]>li").should("have.length", 7);
   });
